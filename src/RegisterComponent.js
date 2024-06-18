@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './RegisterComponent.css';
 
 function RegisterComponent() {
@@ -7,9 +8,15 @@ function RegisterComponent() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleRegister = () => {
+  const handleRegister = (e) => {
+    e.preventDefault();
     // Implement your register logic here
     console.log(email, verificationCode, password, confirmPassword);
+  };
+
+  const handleSendVerificationCode = () => {
+    // Implement your logic to send verification code
+    console.log('Sending verification code to', email);
   };
 
   return (
@@ -18,40 +25,43 @@ function RegisterComponent() {
         {/* 图片将在这里添加 */}
       </div>
       <div className="register-form">
-        <h1>Register Now✍️</h1>
+      <h1 className="register-title">Register Now✍️</h1> 
         <form onSubmit={handleRegister}>
           <input
             type="email"
-            placeholder="Email"
+            placeholder="邮箱"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <input
-            type="text"
-            placeholder="Verification Code"
-            value={verificationCode}
-            onChange={(e) => setVerificationCode(e.target.value)}
-            required
-          />
+          <div className="verification-code-section">
+            <input
+              type="text"
+              placeholder="验证码"
+              value={verificationCode}
+              onChange={(e) => setVerificationCode(e.target.value)}
+              required
+            />
+            <button type="button" onClick={handleSendVerificationCode}>发送验证码</button>
+          </div>
           <input
             type="password"
-            placeholder="Password"
+            placeholder="密码"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
           <input
             type="password"
-            placeholder="Confirm Password"
+            placeholder="确认密码"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-          <button type="submit">Register</button>
+          <button type="submit">注册</button>
         </form>
         <p>
-          Already have an account? <a href="#">Login now.</a>
+          已有账号？<Link to="/login">现在登录</Link>
         </p>
       </div>
     </div>

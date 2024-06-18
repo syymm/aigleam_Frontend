@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './LoginComponent.css'; 
 
 function LoginComponent() {
@@ -44,7 +45,7 @@ function LoginComponent() {
           <button type="submit">立即登录</button>
         </form>
         <p>
-          没有账号吗？<a href="#">现在注册一个。</a>
+          没有账号吗？<Link to="/register">现在注册一个</Link>
         </p>
       </div>
       <div className="login-image">
