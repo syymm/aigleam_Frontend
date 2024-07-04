@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './LoginComponent.css'; 
+import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function LoginComponent() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#7E57C2', // 登录按钮悬停时颜色
+      },
+    },
+  });
 
   const handleLogin = () => {
     // Implement your login logic here
@@ -13,6 +23,7 @@ function LoginComponent() {
   };
 
   return (
+    <ThemeProvider theme={theme}>
     <div className="login-component">
       <div className="login-form">
         <h1>Welcome👋</h1>
@@ -42,7 +53,7 @@ function LoginComponent() {
             </label>
             <a href="#" className="forgot-password">忘记密码了？</a>
           </div>
-          <button type="submit">立即登录</button>
+          <Button type="submit" variant="contained" color="primary">立即登录</Button>
         </form>
         <p>
           没有账号吗？<Link to="/register">现在注册一个</Link>
@@ -52,6 +63,7 @@ function LoginComponent() {
         {/* 图片将在这里添加 */}
       </div>
     </div>
+    </ThemeProvider>
   );
 }
 
