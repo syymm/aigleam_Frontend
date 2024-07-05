@@ -35,7 +35,7 @@ function LoginComponent() {
     <ThemeProvider theme={theme}>
       <div className="login-component">
         <div className="login-form">
-          <h1>Welcome👋</h1>
+          <h1>Welcome 👋</h1>
           <form onSubmit={handleLogin}>
             <TextField
               sx={{ bgcolor: 'white', marginTop: '0px' }}

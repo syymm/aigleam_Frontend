@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap');
+
 .login-component {
   display: flex;
   width: 70%;
@@ -26,6 +28,10 @@
 }
 
 .login-form h1 {
+  font-family: "Playwrite US Modern", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
   margin-bottom: 3rem; /* 增加标题下的间距 */
 }
 
